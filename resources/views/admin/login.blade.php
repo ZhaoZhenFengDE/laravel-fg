@@ -25,9 +25,9 @@
 						<span><i class="fa fa-lock"></i></span>
 					</li>
 					<li>
-						<input type="text" class="code" name="code"/>
+						<input type="text" class="code" name="captcha"/>
 						<span><i class="fa fa-check-square-o"></i></span>
-						<img src="{{url('/admin/code')}}" alt="" onclick="this.src = '{{url('/admin/code')}}?'+Math.random()">
+						<img id="captcha" src="{{url('/admin/code/1')}}" alt="验证码" onclick="javascript:re_captcha();">
 					</li>
 					<li>
 						<input type="submit" value="立即登陆"/>
@@ -37,5 +37,12 @@
 			<p><a href="http://www.lthuali.com">返回首页</a> &copy; 2017 Powered by <a href="http://www.lthuali.com" target="_blank">http://www.lthuali.com</a></p>
 		</div>
 	</div>
+    <script>
+        function re_captcha() {
+            $url = "{{ URL('/admin/code') }}";
+            $url = $url + "/" + Math.random();
+            document.getElementById('captcha').src = $url;
+        }
+    </script>
 </body>
 </html>

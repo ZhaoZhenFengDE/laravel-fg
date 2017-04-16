@@ -6,17 +6,15 @@ use App\Http\Model\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Input;
-
-require_once 'Resources\org\code\Code.php';
+use Gregwar\Captcha\CaptchaBuilder;
 
 class LoginController extends CommonController
 {
     public function login()
     {
+        $captcha = $_SESSION['phrase'];
         if($input = Input::all()){
-            $code = new \Code;
-            $_code = strtoupper($code -> get());
-            if(strtoupper($input['code'])!=$_code){
+            if($input['captcha'] !== $captcha){
                 return back()->with('msg','验证码错误！');
             }
             $user = User::first();
@@ -30,14 +28,19 @@ class LoginController extends CommonController
             return view('admin.login');
         }
     }
-    public function code()
-    {
-        $code = new \Code;
-        $code -> make();
-    }
     public function quit()
     {
         session(['user' => null]);
         return redirect('admin/login');
+    }
+    public function getCode()
+    {
+        //生成验证码图片的Builder对象，配置相应属性
+        $builder = new CaptchaBuilder;
+        //可以设置图片宽高及字体
+        $builder->build( $width = 103,$height = 20,$font = null );
+        $_SESSION['phrase'] = $builder->getPhrase();
+        header('Content-type: image/jpeg');
+        $builder->output();
     }
 }

@@ -12,7 +12,7 @@
 */
 Route::group(['middleware' => ['web'],'prefix'=>'admin','namespace'=>'Admin'],function(){
     Route::any('login','LoginController@login');
-    Route::get('code','LoginController@code');
+    Route::get('code/{tmp}','LoginController@getCode');
 });
 Route::group(['middleware' => ['web','admin.login'],'prefix'=>'admin','namespace'=>'Admin'],function(){
    Route::get('index','IndexController@index');
