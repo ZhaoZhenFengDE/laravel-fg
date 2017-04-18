@@ -6,12 +6,7 @@
  * @package  Laravel
  * @author   Taylor Otwell <taylor@laravel.com>
  */
-if (version_compare(PHP_VERSION, '5.4.0', '<')) {
-    if(session_id() == '') {session_start();}
-} else  {
-    if (session_status() == PHP_SESSION_NONE) {session_start();}
-}
-
+session_start();
 $uri = urldecode(
     parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
 );

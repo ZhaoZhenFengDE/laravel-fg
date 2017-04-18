@@ -12,14 +12,7 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::middleware('cors','api')->get('/province',function(){
-    $province = DB::select('select * from fg_province');
-    return response()->json($province);
-});
-Route::middleware('cors','api')->get('/cities/{id}',function($id){
-    $cities = DB::select('select * from fg_city where father = :id',['id'=>$id]);
-    $area = DB::select('select * from fg_area where father = :id',['id'=>$id+100]);
-    $areas = DB::select('select * from fg_area where father = :id',['id'=>$id+200]);
-    $city = $cities?$cities:array_merge($area,$areas);
-    return response()->json($city);
-});
+Route::middleware('cors','api')->get('/province','ApiController@getProvince');
+Route::middleware('cors','api')->get('/cities/{id}','ApiController@getCities');
+Route::middleware('cors','api')->get('/preview','ApiController@preview');
+Route::middleware('cors','api')->get('/category/{id}','ApiController@getCategor');
