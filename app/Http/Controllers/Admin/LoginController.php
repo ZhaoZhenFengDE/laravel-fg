@@ -23,6 +23,7 @@ class LoginController extends CommonController
 
     public function login()
     {
+        $captcha = $_SESSION['$phrase'];
         if ($input = Input::all()) {
             if (strtoupper($input['captcha']) !== strtoupper($captcha)) {
                 return back()->with('msg', '验证码错误！');
