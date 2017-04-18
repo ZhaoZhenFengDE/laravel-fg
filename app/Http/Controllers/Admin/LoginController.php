@@ -7,25 +7,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Input;
 use Gregwar\Captcha\CaptchaBuilder;
-
+use Gregwar\Captcha\PhraseBuilder;
+use Illuminate\Support\Facades\Session;
 class LoginController extends CommonController
 {
-    public function getCode()
-    {
-        //生成验证码图片的Builder对象，配置相应属性
-        $builder = new CaptchaBuilder;
-        //可以设置图片宽高及字体
-        $builder->build($width = 103, $height = 20, $font = null);
-        $_SESSION['$phrase'] = $builder->getPhrase();
-        header('Content-type: image/jpeg');
-        $builder->output();
-    }
-
     public function login()
     {
-        $captcha = $_SESSION['$phrase'];
         if ($input = Input::all()) {
-            if (strtoupper($input['captcha']) !== strtoupper($captcha)) {
+            if (strtoupper($input['captcha']) !== strtoupper(\Session::get('code'))) {
                 return back()->with('msg', '验证码错误！');
             }
             $user = User::first();
@@ -40,6 +29,17 @@ class LoginController extends CommonController
         }
     }
 
+    public function getCode()
+    {
+        //生成验证码图片的Builder对象，配置相应属性
+        $builder = new CaptchaBuilder;
+        //可以设置图片宽高及字体
+        $builder->build($width = 103, $height = 20, $font = null);
+        $phrase = $builder->getPhrase();
+        \Session::flash('code',$phrase);
+        header('Content-type: image/jpeg');
+        $builder->output();
+    }
     public function quit()
     {
         session(['user' => null]);

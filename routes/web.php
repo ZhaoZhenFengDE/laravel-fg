@@ -19,4 +19,5 @@ Route::group(['middleware' => ['web','admin.login'],'prefix'=>'admin','namespace
    Route::get('info','IndexController@info');
    Route::get('quit','LoginController@quit');
    Route::any('psw','IndexController@psw');
+   Route::resource('category',"CategoryController");
 });
