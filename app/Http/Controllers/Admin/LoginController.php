@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Input;
 use Gregwar\Captcha\CaptchaBuilder;
 use Gregwar\Captcha\PhraseBuilder;
 use Illuminate\Support\Facades\Session;
+
 class LoginController extends CommonController
 {
     public function login()

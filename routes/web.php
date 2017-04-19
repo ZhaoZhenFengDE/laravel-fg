@@ -19,5 +19,7 @@ Route::group(['middleware' => ['web','admin.login'],'prefix'=>'admin','namespace
    Route::get('info','IndexController@info');
    Route::get('quit','LoginController@quit');
    Route::any('psw','IndexController@psw');
+   Route::post('cate/changeorder','CategoryController@changeOrder');
    Route::resource('category',"CategoryController");
+   Route::resource('article',"ArticleController");
 });
