@@ -9,11 +9,12 @@ class ArticleController extends CommonController
     // 全部博客列表
     public function index()
     {
-        echo '全部文章列表';
+        return view('vendor.UEditor.test');
     }
     // get.admin/article/create 添加文章
     public function create()
     {
-        echo '这是添加文章列表';
+
+        return view('admin.article.add');
     }
 }
