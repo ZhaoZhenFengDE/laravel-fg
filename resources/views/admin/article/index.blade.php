@@ -37,7 +37,7 @@
                     <tr>
                         <td class="tc">{{$v->blog_id}}</td>
                         <td>
-                            <a href="#">{{$v->blog_title}}</a>
+                            <a href="{{url('admin/article/'.$v->blog_id.'/edit')}}">{{$v->blog_title}}</a>
                         </td>
                         <td>{{$v->blog_editor}}</td>
                         <td>{{$v->updated_at}}</td>
