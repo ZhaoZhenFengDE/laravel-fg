@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Model\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Model\Products;
+use App\Http\Model\Article;
 
 class ApiController extends Controller
 {
@@ -25,31 +28,64 @@ class ApiController extends Controller
 
     public function preview()
     {
-        $categories = DB::select('select * from fg_commodity');
+        $products = Products::all();
         $preview = array();
-        for($i = 0; $i< count($categories); $i++){
-            $commodity_id = $categories[$i]->commodity_id;
-            $commodity_name = $categories[$i]->commodity_name;
-            $commodity_pic = $categories[$i]->commodity_pic;
-            $price = $categories[$i]->price;
-            $old_price = $categories[$i]->old_price;
-            $star = $categories[$i]->star;
-            $type = $categories[$i]->type;
+        for($i = 0; $i< count($products); $i++){
+            $commodity_id = $products[$i]->commodity_id;
+            $commodity_name = $products[$i]->commodity_name;
+            $commodity_pic = $products[$i]->commodity_pic;
+            $price = $products[$i]->price;
+            $old_price = $products[$i]->old_price;
+            $star = $products[$i]->star;
             $preview[$i] = array(
                 "commodity_id"=>$commodity_id,
                 "commodity_name"=>$commodity_name,
                 "commodity_pic"=>$commodity_pic,
                 "price"=>$price,
                 "old_price"=>$old_price,
-                "star"=>$star,
-                "type"=>$type);
+                "star"=>$star);
         }
         return response()->json($preview);
     }
 
-    public function getCategor($id)
+    public function getProduct($id)
     {
-        $categories = DB::select('select * from fg_commodity WHERE commodity_id =  :id',['id' => $id]);
-        return response()->json($categories);
+        $product = Products::find($id);
+        return response()->json($product);
+    }
+
+    public function getArticlesPreview()
+    {
+        $articles = Article::orderBy('created_at','desc')->paginate(5);
+        for($i = 0;$i<5;$i++){
+            $blog_id = $articles[$i]->blog_id;
+            $blog_title = $articles[$i]->blog_title;
+            $blog_thumb = $articles[$i]->blog_thumb;
+            $created_at = $articles[$i]->created_at;
+            $articles_preview[$i] = array(
+                "blog_id"=>$blog_id,
+                "blog_title"=>$blog_title,
+                "blog_thumb"=>$blog_thumb,
+                "created_at"=>$created_at);
+        }
+        return response()->json($articles_preview);
+    }
+
+    public function getMorePreview()
+    {
+        $articles = Article::orderBy('created_at','desc')->paginate(6);
+        dd($articles->links());
+        for($i = 0;$i<count($articles);$i++){
+            $blog_id = $articles[$i]->blog_id;
+            $blog_title = $articles[$i]->blog_title;
+            $blog_thumb = $articles[$i]->blog_thumb;
+            $blog_description = $articles[$i]->blog_description;
+            $articles_preview[$i] = array(
+                "blog_id"=>$blog_id,
+                "blog_title"=>$blog_title,
+                "blog_thumb"=>$blog_thumb,
+                "blog_description"=>$blog_description);
+        }
+        return response()->json($articles_preview);
     }
 }

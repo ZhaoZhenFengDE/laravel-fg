@@ -57,7 +57,7 @@
                 <tr>
                     <th>描述：</th>
                     <td>
-                        <textarea name="cate_description"></textarea>
+                        <textarea name="cate_description" style="resize: none"></textarea>
                     </td>
                 </tr>
                 <tr>

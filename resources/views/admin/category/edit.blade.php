@@ -62,7 +62,7 @@
                 <tr>
                     <th>描述：</th>
                     <td>
-                        <textarea name="cate_description">{{$filed->cate_description}}</textarea>
+                        <textarea name="cate_description" style="resize: none">{{$filed->cate_description}}</textarea>
                     </td>
                 </tr>
                 <tr>

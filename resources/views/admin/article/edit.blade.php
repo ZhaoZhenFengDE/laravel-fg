@@ -91,7 +91,7 @@
                 <tr>
                     <th>描述：</th>
                     <td>
-                        <textarea name="blog_description" >{{$data->blog_description }}</textarea>
+                        <textarea name="blog_description" style="resize: none">{{$data->blog_description }}</textarea>
                     </td>
                 </tr>
                 <tr>

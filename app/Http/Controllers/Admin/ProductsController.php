@@ -1,24 +1,25 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Model\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-use App\Http\Model\Article;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Model\Category;
 
-class ArticleController extends CommonController
+class ProductsController extends CommonController
 {
-    // 全部博客列表
+    // 全部商品列表
     public function index()
     {
-        $data = Article::orderBy('blog_id','desc')->paginate(10);
-        return view('admin.article.index',compact('data'));
+        $data = Products::orderBy('commodity_id','desc')->paginate(4);
+        return view('admin.products.index',compact('data'));
     }
     // get.admin/article/create 添加文章
     public function create()
     {
-        return view('create()admin.article.add');
+        $data = (new Category)->tree();
+        return view('admin.products.add',compact('data'));
     }
 
     // post.admin/article 添加文章提交
@@ -26,18 +27,20 @@ class ArticleController extends CommonController
     {
         $input = Input::except('_token');
         $rules = [
-            'blog_title' =>'required',
-            'blog_content' =>'required',
+            'commodity_name' =>'required',
+            'price' =>'required',
+            'commodity_pic' =>'required',
         ];
         $message = [
-            'blog_title.required'=>'文章标题不能为空！',
-            'blog_content.required'=>'文章内容不能为空！'
+            'commodity_name'=>'商品名称不能为空！',
+            'price'=>'请设置商品售价！',
+            'commodity_pic' => '请添加商品图片！'
         ];
         $validator = Validator::make($input,$rules,$message);
         if($validator->passes()){
-            $re = Article::Create($input);
+            $re = Products::Create($input);
             if($re){
-                return redirect('admin/article');
+                return redirect('admin/products');
             }else{
                 return back()->with('errors','数据提交错误，请稍后重试！');
             }
@@ -46,27 +49,28 @@ class ArticleController extends CommonController
         }
     }
     // get.admin/article/{article}/edit 添加文章
-    public function edit($blog_id)
+    public function edit($product_id)
     {
-        $data = Article::find($blog_id);
-        return view('admin.article.edit',compact('data'));
+        $data = (new Category)->tree();
+        $files = Products::find($product_id);
+        return view('admin.products.edit',compact('data','files'));
     }
 
     // put.admin/article/{article}更新文章
-    public function update($blog_id)
+    public function update($product_id)
     {
         $input = Input::except('_token','_method');
-        $re = Article::where('blog_id',$blog_id)->update($input);
+        $re = Products::where('commodity_id',$product_id)->update($input);
         if($re){
-            return redirect('admin/article');
+            return redirect('admin/products');
         }else{
             return back()->with('errors','更新文章失败，请稍后重试！');
         }
     }
     //delete.admin/category/{category}  删除单个分类
-    public function destroy($blog_id)
+    public function destroy($product_id)
     {
-        $re = Article::where('blog_id',$blog_id)->delete();
+        $re = Products::where('commodity_id',$product_id)->delete();
         if($re){
             $data = [
                 'status'=> 0,

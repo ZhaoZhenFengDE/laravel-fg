@@ -15,4 +15,6 @@ use Illuminate\Http\Request;
 Route::middleware('cors','api')->get('/province','ApiController@getProvince');
 Route::middleware('cors','api')->get('/cities/{id}','ApiController@getCities');
 Route::middleware('cors','api')->get('/preview','ApiController@preview');
-Route::middleware('cors','api')->get('/category/{id}','ApiController@getCategor');
+Route::middleware('cors','api')->get('/product/{id}','ApiController@getProduct');
+Route::middleware('cors','api')->get('/blog','ApiController@getArticlesPreview');
+Route::middleware('cors','api')->get('/articles','ApiController@getMorePreview');
