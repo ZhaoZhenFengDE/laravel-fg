@@ -18,7 +18,7 @@ class ArticleController extends CommonController
     // get.admin/article/create 添加文章
     public function create()
     {
-        return view('create()admin.article.add');
+        return view('admin.article.add');
     }
 
     // post.admin/article 添加文章提交
