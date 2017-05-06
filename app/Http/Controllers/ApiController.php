@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Model\Products;
 use App\Http\Model\Article;
 use App\Http\Model\Users;
+use App\Http\Model\Active;
 
 class ApiController extends Controller
 {
@@ -77,6 +78,17 @@ class ApiController extends Controller
     public function getProduct($id)
     {
         $product = Products::find($id);
+        $review = DB::select('select * from fg_review where fg_commodity_id  = :id', ['id' => $product['commodity_id']]);
+        if($review){
+            $product['review'] = $review;
+        }else{
+            $product['review'] = [
+                [
+                'fg_user'=>0,
+                'fg_reviews' =>'暂无评价信息'
+                ]
+            ];
+        }
         return response()->json($product);
     }
     // 获取左侧文章列表
@@ -97,7 +109,7 @@ class ApiController extends Controller
         return response()->json($articles_preview);
     }
 
-    // 获取文章更多信息，用与卡片渲染
+    // 获取文章更多信息，用yu卡片渲染
     public function getMorePreview()
     {
         $articles = Article::orderBy('created_at', 'desc')->paginate(6);
@@ -237,4 +249,13 @@ class ApiController extends Controller
         $city = array_merge($cityname, $area);
         return response()->json($city);
     }
+    
+    // 活动
+
+    public function Active()
+    {
+        $active = Active::all();
+        return response()->json($active);
+    }
+
 }

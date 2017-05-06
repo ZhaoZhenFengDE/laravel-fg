@@ -27,3 +27,4 @@ Route::middleware('cors','api')->get('/flowers','ApiController@getAllFlowers');
 Route::middleware('cors','api')->get('/category/{cate_id}','ApiController@getCategory');
 Route::middleware('cors','api')->post('/register','ApiController@Register');
 Route::middleware('cors','api')->post('/login','ApiController@UserLogin');
+Route::middleware('cors','api')->get('/active','ApiController@Active');
