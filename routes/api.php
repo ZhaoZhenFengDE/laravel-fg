@@ -28,3 +28,8 @@ Route::middleware('cors','api')->get('/category/{cate_id}','ApiController@getCat
 Route::middleware('cors','api')->post('/register','ApiController@Register');
 Route::middleware('cors','api')->post('/login','ApiController@UserLogin');
 Route::middleware('cors','api')->get('/active','ApiController@Active');
+Route::middleware('cors','api')->get('/cart/{user_name}','ApiController@CartInfo');
+Route::middleware('cors','api')->delete('/delete','ApiController@DeleteCart');
+Route::middleware('cors','api')->post('/addcart','ApiController@addCartInfo');
+Route::middleware('cors','api')->get('/getaddress/{user_name}','ApiController@GetAddress');
+Route::middleware('cors','api')->post('/addAddress','ApiController@AddAddress');

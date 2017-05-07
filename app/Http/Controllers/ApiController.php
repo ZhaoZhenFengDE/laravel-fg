@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Model\Cart;
 use App\Http\Model\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -158,6 +159,7 @@ class ApiController extends Controller
     public function getAllFlowers()
     {
         $flowers = Products::all()->where('cate_id',1);
+        $allFlowers = array();
         for ($i = 0; $i < count($flowers); $i++) {
             $commodity_id = $flowers[$i]->commodity_id;
             $commodity_name = $flowers[$i]->commodity_name;
@@ -166,7 +168,7 @@ class ApiController extends Controller
             $old_price = $flowers[$i]->old_price;
             $cate_id = $flowers[$i]->cate_id;
             $star = $flowers[$i]->star;
-            $flower[$i] = array(
+            $allFlowers[$i] = array(
                 "commodity_id" => $commodity_id,
                 "commodity_name" => $commodity_name,
                 "commodity_pic" => $commodity_pic,
@@ -175,7 +177,7 @@ class ApiController extends Controller
                 "cate_id" => $cate_id,
                 "star" => $star);
         }
-        return response()->json($flower);
+        return response()->json($allFlowers);
     }
 
     //用户注册
@@ -254,8 +256,91 @@ class ApiController extends Controller
 
     public function Active()
     {
-        $active = Active::all();
+        $active = Active::all()->take(4);
         return response()->json($active);
+    }
+
+    // 获取购物车信息
+    public function CartInfo($user_name)
+    {
+        $cartInfo = Cart::all()->where('user_name',$user_name);
+        return response()->json($cartInfo);
+    }
+
+    //删除购物车信息
+    public function DeleteCart(Request $request)
+    {
+        $cart_id = $request['cart_id'];
+        $re = Cart::where('cart_id',$cart_id)->delete();
+        if($re){
+            $data = [
+                'status'=> 1,
+                'msg' => '删除物品成功'
+            ];
+            return response()->json($data);
+        }else{
+            $data = [
+                'status'=> 0,
+                'msg' => '删除物品失败'
+            ];
+            return response()->json($data);
+        }
+    }
+
+    //添加购物车信息
+    public function addCartInfo(Request $request)
+    {
+        $cart =[
+            'user_name'=>$request['user_name'],
+            'commodity_id'=>$request['commodity_id'],
+            'commodity_name'=>$request['commodity_name'],
+            'commodity_pic'=>$request['commodity_pic'],
+            'price'=>$request['price'],
+            'number'=>$request['number']
+        ];
+        $re = Cart::Create($cart);
+        if($re){
+            $data = [
+                'status'=> 1,
+                'msg' => '添加购物车成功！'
+            ];
+            return response()->json($data);
+        }else{
+            $data = [
+                'status'=> 0,
+                'msg' => '添加购物车失败，请重试！'
+            ];
+            return response()->json($data);
+        }
+    }
+
+    //查询地址
+    public function GetAddress($user_name)
+    {
+        $user = Users::all()->where('user_name',$user_name)->first();
+        return response()->json($user['user_addr']);
+    }
+
+    // 添加地址
+    public function AddAddress(Request $request)
+    {
+        $userAddress = [
+            "user_addr"=>$request['address']
+        ];
+        $re = Users::where('user_name',$request['user_name'])->update($userAddress);
+        if($re){
+            $data = [
+                'status'=> 1,
+                'msg' => '添加地址成功！'
+            ];
+            return response()->json($data);
+        }else{
+            $data = [
+                'status'=> 0,
+                'msg' => '添加地址失败！'
+            ];
+            return response()->json($data);
+        }
     }
 
 }
