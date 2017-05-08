@@ -11,9 +11,9 @@
 </head>
 <body>
 <div id=app></div>
-<script type=text/javascript src={{asset('/resources/views/static/js/manifest.41c89666d3ea5fcf57e0.js')}}></script>
+<script type=text/javascript src={{asset('/resources/views/static/js/manifest.494c9ceb6e37dae84942.js')}}></script>
 <script type=text/javascript
         src={{asset('/resources/views/static/js/vendor.023832eae6fd0b7556ed.js')}}></script>
-<script type=text/javascript src={{asset('/resources/views/static/js/app.a9dfe3d4c39b753d24cb.js')}}></script>
+<script type=text/javascript src={{asset('/resources/views/static/js/app.f5c41253935b8959828f.js')}}></script>
 </body>
 </html>
