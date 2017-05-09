@@ -7,13 +7,13 @@
           content=兰亭花礼苑是一家专注于做网上鲜花礼品的电商网站，致力于将新鲜的鲜花礼品以最快的速度送到用户手中，鲜花礼品网可24小时预订鲜花，同城送花、异地送花服务,网上订花后最快3小时即可将鲜花快递上门,送花网站覆盖中国900多城市！>
     <meta name=keyword content=鲜花,鲜花网,鲜花快递,网上订花送花,鲜花礼品网,鲜花礼品,网上订花,送花网站,兰亭花礼网>
     <link rel="shortcut icon" href=./src/assets/img/favicon.ico>
-    <link href={{asset('/resources/views/static/css/app.19e9626cd4b57b33fa39d952ea1146f2.css')}} rel=stylesheet>
+    <link href={{asset('/resources/views/static/css/app.3612b1b6b60bcc689ee76e83bb911104.css')}} rel=stylesheet>
 </head>
 <body>
 <div id=app></div>
-<script type=text/javascript src={{asset('/resources/views/static/js/manifest.494c9ceb6e37dae84942.js')}}></script>
+<script type=text/javascript src={{asset('/resources/views/static/js/manifest.8e9c667acc4df1a32d41.js')}}></script>
 <script type=text/javascript
-        src={{asset('/resources/views/static/js/vendor.023832eae6fd0b7556ed.js')}}></script>
-<script type=text/javascript src={{asset('/resources/views/static/js/app.f5c41253935b8959828f.js')}}></script>
+        src={{asset('/resources/views/static/js/vendor.be0047f9bb5c054a8479.js')}}></script>
+<script type=text/javascript src={{asset('/resources/views/static/js/app.330d55dc1f81e43cc9c1.js')}}></script>
 </body>
 </html>
