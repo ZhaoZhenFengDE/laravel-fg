@@ -12,7 +12,7 @@ class ProductsController extends CommonController
     // 全部商品列表
     public function index()
     {
-        $data = Products::orderBy('commodity_id','desc')->paginate(4);
+        $data = Products::orderBy('commodity_id','desc')->paginate(10);
         return view('admin.products.index',compact('data'));
     }
     // get.admin/article/create 添加文章

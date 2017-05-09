@@ -69,7 +69,7 @@
                                     'uploader' : "{{url('admin/upload')}}",
                                     'onUploadSuccess' : function(file, data, response) {
                                         $('input[name=blog_thumb]').val(data);
-                                        $('#blog_thumb_img').attr('src','/'+data);
+                                        $('#blog_thumb_img').attr('src','/'+ data);
                                     }
                                 });
                             });

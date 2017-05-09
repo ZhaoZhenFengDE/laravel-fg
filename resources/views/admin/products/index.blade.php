@@ -52,10 +52,19 @@
                     </tr>
                     @endforeach
                 </table>
+                <div class="page_list">
+                    {{$data->links()}}
+                </div>
             </div>
         </div>
     </form>
     <!--搜索结果页面 列表 结束-->
+    <style>
+        .result_content ul li span{
+            font-size: 15px;
+            padding: 6px 12px;
+        }
+    </style>
     <script>
 
         function changeOrder(obj,cate_id){
