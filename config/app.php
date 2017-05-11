@@ -168,7 +168,7 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
-
+        Nutsweb\LaravelPrerender\LaravelPrerenderServiceProvider::class,
         /*
          * Application Service Providers...
          */
