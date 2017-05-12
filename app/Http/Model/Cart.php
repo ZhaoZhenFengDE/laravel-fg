@@ -8,7 +8,7 @@ class Cart extends Model
 {
     //
     protected $table = 'cart';
-    protected $primaryKey = 'user_id';
+    protected $primaryKey = 'cart_id';
     protected $guarded = [];
     public $timestamps = false;
 }

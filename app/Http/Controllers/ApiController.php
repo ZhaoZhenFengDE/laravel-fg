@@ -71,7 +71,7 @@ class ApiController extends Controller
     //获取分类商品信息
     public function getCategory($cate_id)
     {
-        $products  = Products::all()->where('cate_id',$cate_id);
+        $products = Products::all()->where('cate_id', $cate_id);
         return response()->json($products);
     }
 
@@ -80,18 +80,19 @@ class ApiController extends Controller
     {
         $product = Products::find($id);
         $review = DB::select('select * from fg_review where fg_commodity_id  = :id', ['id' => $product['commodity_id']]);
-        if($review){
+        if ($review) {
             $product['review'] = $review;
-        }else{
+        } else {
             $product['review'] = [
                 [
-                'fg_user'=>0,
-                'fg_reviews' =>'暂无评价信息'
+                    'fg_user' => 0,
+                    'fg_reviews' => '暂无评价信息'
                 ]
             ];
         }
         return response()->json($product);
     }
+
     // 获取左侧文章列表
     public function getArticlesPreview()
     {
@@ -144,21 +145,23 @@ class ApiController extends Controller
                 "blog_title" => $blog_title,
                 "blog_thumb" => $blog_thumb,
                 "blog_description" => $blog_description,
-                "blog_editor"=> $blog_editor,
-                "created_at"=>$created_at);
+                "blog_editor" => $blog_editor,
+                "created_at" => $created_at);
         };
         return $articles_preview;
     }
+
     // 获取单个文章详细信息
     public function getArticleDetail($id)
     {
         $article = Article::find($id);
         return response()->json($article);
     }
+
     // 获取所有的花朵
     public function getAllFlowers()
     {
-        $flowers = Products::all()->where('cate_id',1);
+        $flowers = Products::all()->where('cate_id', 1);
         $allFlowers = array();
         for ($i = 0; $i < count($flowers); $i++) {
             $commodity_id = $flowers[$i]->commodity_id;
@@ -184,55 +187,56 @@ class ApiController extends Controller
     public function Register(Request $request)
     {
         $name = $request['name'];
-        $user_name = Users::where('user_name',$name)->first();
-        if($user_name){
+        $user_name = Users::where('user_name', $name)->first();
+        if ($user_name) {
             $data = [
-                'status'=> 0,
+                'status' => 0,
                 'msg' => '账户名已存在'
             ];
             return $data;
-        }else{
+        } else {
             $newUsers = [
-                'user_name'=>$request['name'],
-                'user_psw'=> $request['password']
+                'user_name' => $request['name'],
+                'user_psw' => $request['password']
             ];
             $re = Users::Create($newUsers);
-            if($re){
+            if ($re) {
                 return $data = [
-                    'status'=> 1,
+                    'status' => 1,
                     'msg' => '注册成功'
                 ];
-            }else{
-               return $data = [
-                   'status'=> 0,
-                   'msg' => '注册成功'
-               ];
+            } else {
+                return $data = [
+                    'status' => 0,
+                    'msg' => '注册成功'
+                ];
             }
         }
     }
+
     //用户登录
     public function UserLogin(Request $request)
     {
         $name = $request['name'];
         $password = $request['password'];
-        $user = Users::where('user_name',$name)->first();
-        if($user){
-            if($password === $user['user_psw']){
+        $user = Users::where('user_name', $name)->first();
+        if ($user) {
+            if ($password === $user['user_psw']) {
                 $data = [
-                    'status'=> 1,
+                    'status' => 1,
                     'msg' => '登录成功！'
                 ];
                 return response()->json($data);
-            }else {
+            } else {
                 $data = [
-                    'status'=> 0,
+                    'status' => 0,
                     'msg' => '用户密码错误！'
                 ];
                 return response()->json($data);
             }
-        }else{
+        } else {
             $data = [
-                'status'=> 0,
+                'status' => 0,
                 'msg' => '用户不存在，请注册！'
             ];
             return response()->json($data);
@@ -241,17 +245,18 @@ class ApiController extends Controller
 
     public function getProvinceName($request)
     {
-       $province = DB::select('select * from fg_province WHERE value = :id',['id' => $request]);
-       return response()->json($province);
+        $province = DB::select('select * from fg_province WHERE value = :id', ['id' => $request]);
+        return response()->json($province);
     }
+
     public function getCityName($request)
     {
-        $cityname = DB::select('select * from fg_city WHERE value = :id',['id' => $request]);
-        $area = DB::select('select * from fg_area WHERE value = :id',['id' => $request]);
+        $cityname = DB::select('select * from fg_city WHERE value = :id', ['id' => $request]);
+        $area = DB::select('select * from fg_area WHERE value = :id', ['id' => $request]);
         $city = array_merge($cityname, $area);
         return response()->json($city);
     }
-    
+
     // 活动
 
     public function Active()
@@ -263,7 +268,7 @@ class ApiController extends Controller
     // 获取购物车信息
     public function CartInfo($user_name)
     {
-        $cartInfo = Cart::all()->where('user_name',$user_name);
+        $cartInfo = DB::select('select * from fg_cart WHERE user_name = :username', ['username' => $user_name]);
         return response()->json($cartInfo);
     }
 
@@ -271,16 +276,16 @@ class ApiController extends Controller
     public function DeleteCart(Request $request)
     {
         $cart_id = $request['cart_id'];
-        $re = Cart::where('cart_id',$cart_id)->delete();
-        if($re){
+        $re = Cart::where('cart_id', $cart_id)->delete();
+        if ($re) {
             $data = [
-                'status'=> 1,
+                'status' => 1,
                 'msg' => '删除物品成功'
             ];
             return response()->json($data);
-        }else{
+        } else {
             $data = [
-                'status'=> 0,
+                'status' => 0,
                 'msg' => '删除物品失败'
             ];
             return response()->json($data);
@@ -290,24 +295,24 @@ class ApiController extends Controller
     //添加购物车信息
     public function addCartInfo(Request $request)
     {
-        $cart =[
-            'user_name'=>$request['user_name'],
-            'commodity_id'=>$request['commodity_id'],
-            'commodity_name'=>$request['commodity_name'],
-            'commodity_pic'=>$request['commodity_pic'],
-            'price'=>$request['price'],
-            'number'=>$request['number']
+        $cart = [
+            'user_name' => $request['user_name'],
+            'commodity_id' => $request['commodity_id'],
+            'commodity_name' => $request['commodity_name'],
+            'commodity_pic' => $request['commodity_pic'],
+            'price' => $request['price'],
+            'number' => $request['number']
         ];
         $re = Cart::Create($cart);
-        if($re){
+        if ($re) {
             $data = [
-                'status'=> 1,
+                'status' => 1,
                 'msg' => '添加购物车成功！'
             ];
             return response()->json($data);
-        }else{
+        } else {
             $data = [
-                'status'=> 0,
+                'status' => 0,
                 'msg' => '添加购物车失败，请重试！'
             ];
             return response()->json($data);
@@ -317,7 +322,7 @@ class ApiController extends Controller
     //查询地址
     public function GetAddress($user_name)
     {
-        $user = Users::all()->where('user_name',$user_name)->first();
+        $user = Users::all()->where('user_name', $user_name)->first();
         return response()->json($user['user_addr']);
     }
 
@@ -325,18 +330,18 @@ class ApiController extends Controller
     public function AddAddress(Request $request)
     {
         $userAddress = [
-            "user_addr"=>$request['address']
+            "user_addr" => $request['address']
         ];
-        $re = Users::where('user_name',$request['user_name'])->update($userAddress);
-        if($re){
+        $re = Users::where('user_name', $request['user_name'])->update($userAddress);
+        if ($re) {
             $data = [
-                'status'=> 1,
+                'status' => 1,
                 'msg' => '添加地址成功！'
             ];
             return response()->json($data);
-        }else{
+        } else {
             $data = [
-                'status'=> 0,
+                'status' => 0,
                 'msg' => '添加地址失败！'
             ];
             return response()->json($data);
