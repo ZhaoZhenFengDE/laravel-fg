@@ -13,23 +13,6 @@ use App\Http\Model\Active;
 
 class ApiController extends Controller
 {
-    // 获取省列表
-    public function getProvince()
-    {
-        $province = DB::select('select * from fg_province');
-        return response()->json($province);
-    }
-
-    // 获取市列表
-    public function getCities($request)
-    {
-        $cities = DB::select('select * from fg_city where father = :id', ['id' => $request]);
-        $area = DB::select('select * from fg_area where father = :id', ['id' => $request + 100]);
-        $areas = DB::select('select * from fg_area where father = :id', ['id' => $request + 200]);
-        $city = $cities ? $cities : array_merge($area, $areas);
-        return response()->json($city);
-    }
-
     // 商品简介
     public function preview()
     {
@@ -79,17 +62,6 @@ class ApiController extends Controller
     public function getProduct($id)
     {
         $product = Products::find($id);
-        $review = DB::select('select * from fg_review where fg_commodity_id  = :id', ['id' => $product['commodity_id']]);
-        if ($review) {
-            $product['review'] = $review;
-        } else {
-            $product['review'] = [
-                [
-                    'fg_user' => 0,
-                    'fg_reviews' => '暂无评价信息'
-                ]
-            ];
-        }
         return response()->json($product);
     }
 
@@ -241,20 +213,6 @@ class ApiController extends Controller
             ];
             return response()->json($data);
         }
-    }
-
-    public function getProvinceName($request)
-    {
-        $province = DB::select('select * from fg_province WHERE value = :id', ['id' => $request]);
-        return response()->json($province);
-    }
-
-    public function getCityName($request)
-    {
-        $cityname = DB::select('select * from fg_city WHERE value = :id', ['id' => $request]);
-        $area = DB::select('select * from fg_area WHERE value = :id', ['id' => $request]);
-        $city = array_merge($cityname, $area);
-        return response()->json($city);
     }
 
     // 活动

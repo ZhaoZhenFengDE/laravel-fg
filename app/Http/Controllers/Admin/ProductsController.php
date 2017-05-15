@@ -32,9 +32,9 @@ class ProductsController extends CommonController
             'commodity_pic' =>'required',
         ];
         $message = [
-            'commodity_name'=>'商品名称不能为空！',
-            'price'=>'请设置商品售价！',
-            'commodity_pic' => '请添加商品图片！'
+            'commodity_name.required'=>'商品名称不能为空！',
+            'price.required'=>'请设置商品售价！',
+            'commodity_pic.required' => '请添加商品图片！'
         ];
         $validator = Validator::make($input,$rules,$message);
         if($validator->passes()){

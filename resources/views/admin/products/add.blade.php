@@ -127,9 +127,21 @@
                     </td>
                 </tr>
                 <tr>
-                    <th>商品详情：</th>
+                    <th>商品细节：</th>
                     <td>
-                        <textarea name="product_des" style="resize: none"></textarea>
+                        <textarea name="xijie" style="resize: none" placeholder="图片地址"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>设计：</th>
+                    <td>
+                        <textarea name="design" style="resize: none" placeholder="图片地址"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>选择理由：</th>
+                    <td>
+                        <textarea name="resion" style="resize: none" placeholder="图片地址"></textarea>
                     </td>
                 </tr>
                 <tr>
