@@ -32,7 +32,7 @@
     <!--结果集标题与导航组件 结束-->
 
     <div class="result_wrap">
-        <form action="{{url('admin/article/'.$data->blog_id)}}" method="post">
+        <form action="{{url('admin/article/'.$data->new_id)}}" method="post">
             <input type="hidden" name="_method" value="put">
             {{csrf_field()}}
             <table class="add_tab">
@@ -40,7 +40,7 @@
                 <tr>
                     <th><i class="require">*</i>文章标题：</th>
                     <td>
-                        <input type="text" size="76" name="blog_title" value="{{$data->blog_title }}">
+                        <input type="text" size="76" name="new_title" value="{{$data->blog_title }}">
                         <span><i class="fa fa-exclamation-circle yellow"></i>这里是默认长度</span>
                     </td>
                 </tr>
@@ -85,13 +85,13 @@
                 <tr>
                     <th>图片预览</th>
                     <td style="height: 100px;">
-                        <img src="/{{$data->blog_thumb }}" alt="" id="blog_thumb_img" style="max-width: 350px; max-height:100px;">
+                        <img src="/{{$data->new_thumb }}" alt="" id="blog_thumb_img" style="max-width: 350px; max-height:100px;">
                     </td>
                 </tr>
                 <tr>
                     <th>描述：</th>
                     <td>
-                        <textarea name="blog_description" style="resize: none">{{$data->blog_description }}</textarea>
+                        <textarea name="blog_description" style="resize: none">{{$data->new_description }}</textarea>
                     </td>
                 </tr>
                 <tr>
@@ -107,7 +107,7 @@
                             {overflow: hidden; height:20px;}
                             div.edui-box{overflow: hidden; height:22px;}
                         </style>
-                        <script id="container" type="text/plain" name="blog_content" style="width:900px;height:500px;">{!! $data->blog_content !!}</script></td>
+                        <script id="container" type="text/plain" name="new_content" style="width:900px;height:500px;">{!! $data->blog_content !!}</script></td>
                 </tr>
                 <tr>
                     <th></th>

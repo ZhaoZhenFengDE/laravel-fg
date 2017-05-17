@@ -35,15 +35,15 @@
                     </tr>
                     @foreach($data as $v)
                     <tr>
-                        <td class="tc">{{$v->blog_id}}</td>
+                        <td class="tc">{{$v->new_id}}</td>
                         <td>
-                            <a href="{{url('admin/article/'.$v->blog_id.'/edit')}}">{{$v->blog_title}}</a>
+                            <a href="{{url('admin/article/'.$v->new_id.'/edit')}}">{{$v->new_title}}</a>
                         </td>
-                        <td>{{$v->blog_editor}}</td>
+                        <td>{{$v->new_editor}}</td>
                         <td>{{$v->updated_at}}</td>
                         <td>
-                            <a href="{{url('admin/article/'.$v->blog_id.'/edit')}}">修改</a>
-                            <a href="javascript:;" onclick="delBlog({{$v->blog_id}})">删除</a>
+                            <a href="{{url('admin/article/'.$v->new_id.'/edit')}}">修改</a>
+                            <a href="javascript:;" onclick="delBlog({{$v->new_id}})">删除</a>
                         </td>
                     </tr>
                     @endforeach

@@ -39,20 +39,20 @@
                 <tr>
                     <th><i class="require">*</i>文章标题：</th>
                     <td>
-                        <input type="text" size="76" name="blog_title">
+                        <input type="text" size="76" name="new_title">
                         <span><i class="fa fa-exclamation-circle yellow"></i>这里是默认长度</span>
                     </td>
                 </tr>
                 <tr>
                     <th>作者：</th>
                     <td>
-                        <input type="text" class="sm" name="blog_editor">
+                        <input type="text" class="sm" name="new_editor">
                     </td>
                 </tr>
                 <tr>
                     <th>缩略图：</th>
                     <td>
-                        <input type="text" size="50" name="blog_thumb">
+                        <input type="text" size="50" name="new_thumb">
                         <input id="file_upload" name="file_upload" type="file" multiple="true">
                         <script src="{{asset('resources/org/uploadify/jquery.uploadify.min.js')}}" type="text/javascript"></script>
                         <link rel="stylesheet" type="text/css" href="{{asset('resources/org/uploadify/uploadify.css')}}">
@@ -68,7 +68,7 @@
                                     'swf'      : "{{asset('resources/org/uploadify/uploadify.swf')}}",
                                     'uploader' : "{{url('admin/upload')}}",
                                     'onUploadSuccess' : function(file, data, response) {
-                                        $('input[name=blog_thumb]').val(data);
+                                        $('input[name=new_thumb]').val(data);
                                         $('#blog_thumb_img').attr('src','/'+ data);
                                     }
                                 });
@@ -84,13 +84,13 @@
                 <tr>
                     <th>图片预览</th>
                     <td style="height: 100px;">
-                        <img src="" alt="" id="blog_thumb_img" style="max-width: 350px; max-height:100px;">
+                        <img src="" alt="" id="new_thumb_img" style="max-width: 350px; max-height:100px;">
                     </td>
                 </tr>
                 <tr>
                     <th>描述：</th>
                     <td>
-                        <textarea name="blog_description" style="resize: none"></textarea>
+                        <textarea name="new_description" style="resize: none"></textarea>
                     </td>
                 </tr>
                 <tr>
@@ -106,7 +106,7 @@
                             {overflow: hidden; height:20px;}
                             div.edui-box{overflow: hidden; height:22px;}
                         </style>
-                        <script id="container" type="text/plain" name="blog_content" style="width:900px;height:500px;"></script></td>
+                        <script id="container" type="text/plain" name="new_content" style="width:900px;height:500px;"></script></td>
                 </tr>
                 <tr>
                     <th></th>

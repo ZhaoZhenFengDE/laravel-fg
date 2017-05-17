@@ -12,7 +12,7 @@ class ArticleController extends CommonController
     // 全部博客列表
     public function index()
     {
-        $data = Article::orderBy('blog_id','desc')->paginate(10);
+        $data = Article::orderBy('new_id','desc')->paginate(10);
         return view('admin.article.index',compact('data'));
     }
     // get.admin/article/create 添加文章
@@ -26,12 +26,12 @@ class ArticleController extends CommonController
     {
         $input = Input::except('_token');
         $rules = [
-            'blog_title' =>'required',
-            'blog_content' =>'required',
+            'new_title' =>'required',
+            'new_content' =>'required',
         ];
         $message = [
-            'blog_title.required'=>'文章标题不能为空！',
-            'blog_content.required'=>'文章内容不能为空！'
+            'new_title.required'=>'文章标题不能为空！',
+            'new_content.required'=>'文章内容不能为空！'
         ];
         $validator = Validator::make($input,$rules,$message);
         if($validator->passes()){
@@ -56,7 +56,7 @@ class ArticleController extends CommonController
     public function update($blog_id)
     {
         $input = Input::except('_token','_method');
-        $re = Article::where('blog_id',$blog_id)->update($input);
+        $re = Article::where('new_id',$blog_id)->update($input);
         if($re){
             return redirect('admin/article');
         }else{
@@ -66,7 +66,7 @@ class ArticleController extends CommonController
     //delete.admin/category/{category}  删除单个分类
     public function destroy($blog_id)
     {
-        $re = Article::where('blog_id',$blog_id)->delete();
+        $re = Article::where('new_id',$blog_id)->delete();
         if($re){
             $data = [
                 'status'=> 0,

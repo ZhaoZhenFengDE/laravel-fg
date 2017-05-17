@@ -18,7 +18,7 @@ Route::middleware('cors','api')->get('/cities/{id}','ApiController@getCities');
 Route::middleware('cors','api')->get('/cityname/{id}','ApiController@getCityName');
 Route::middleware('cors','api')->get('/preview','ApiController@preview');
 Route::middleware('cors','api')->get('/product/{id}','ApiController@getProduct');
-Route::middleware('cors','api')->get('/blog','ApiController@getArticlesPreview');
+Route::middleware('cors','api')->get('/news','ApiController@getArticlesPreview');
 Route::middleware('cors','api')->get('/articles','ApiController@getMorePreview');
 Route::middleware('cors','api')->get('/recentArticle','ApiController@getRecentArticle');
 Route::middleware('cors','api')->get('/article/{id}','ApiController@getArticleDetail');

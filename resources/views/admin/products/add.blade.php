@@ -71,7 +71,7 @@
                                     'swf'      : "{{asset('resources/org/uploadify/uploadify.swf')}}",
                                     'uploader' : "{{url('admin/upload')}}",
                                     'onUploadSuccess' : function(file, data, response) {
-                                        $('input[name=blog_thumb]').val(data);
+                                        $('input[name=commodity_pic]').val(data);
                                         $('#blog_thumb_img').attr('src','/'+ data);
                                     }
                                 });

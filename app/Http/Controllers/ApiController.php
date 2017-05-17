@@ -68,59 +68,27 @@ class ApiController extends Controller
     // 获取左侧文章列表
     public function getArticlesPreview()
     {
-        $articles = Article::orderBy('created_at', 'desc')->paginate(5);
-        for ($i = 0; $i < 5; $i++) {
-            $blog_id = $articles[$i]->blog_id;
-            $blog_title = $articles[$i]->blog_title;
-            $blog_thumb = $articles[$i]->blog_thumb;
-            $created_at = $articles[$i]->created_at;
-            $articles_preview[$i] = array(
-                "blog_id" => $blog_id,
-                "blog_title" => $blog_title,
-                "blog_thumb" => $blog_thumb,
-                "created_at" => $created_at);
-        }
-        return response()->json($articles_preview);
+        $articles =
+            Article::select('new_id','new_title','new_thumb','created_at')
+                ->orderBy('new_id','desc')->paginate(8);
+//            DB::select("select new_id,new_title,new_thumb,new_description,created_at FROM fg_news ORDER BY created_at DESC")
+//                ->paginate(8);
+        return response()->json($articles);
     }
 
     // 获取文章更多信息，用yu卡片渲染
     public function getMorePreview()
     {
-        $articles = Article::orderBy('created_at', 'desc')->paginate(6);
-        for ($i = 0; $i < count($articles); $i++) {
-            $blog_id = $articles[$i]->blog_id;
-            $blog_title = $articles[$i]->blog_title;
-            $blog_thumb = $articles[$i]->blog_thumb;
-            $blog_description = $articles[$i]->blog_description;
-            $articles_preview[$i] = array(
-                "blog_id" => $blog_id,
-                "blog_title" => $blog_title,
-                "blog_thumb" => $blog_thumb,
-                "blog_description" => $blog_description,);
-        };
-        return $articles_preview;
+        $articles = Article::select('new_id','new_title','new_thumb','new_description','created_at')->orderBy('new_id','desc')->paginate(6);
+        return $articles;
     }
 
     // 获取最近一篇文章
     public function getRecentArticle()
     {
-        $articles = Article::orderBy('created_at', 'desc')->paginate(6);
-        for ($i = 0; $i < 1; $i++) {
-            $blog_id = $articles[$i]->blog_id;
-            $blog_title = $articles[$i]->blog_title;
-            $blog_thumb = $articles[$i]->blog_thumb;
-            $blog_description = $articles[$i]->blog_description;
-            $blog_editor = $articles[$i]->blog_editor;
-            $created_at = $articles[$i]->created_at;
-            $articles_preview[$i] = array(
-                "blog_id" => $blog_id,
-                "blog_title" => $blog_title,
-                "blog_thumb" => $blog_thumb,
-                "blog_description" => $blog_description,
-                "blog_editor" => $blog_editor,
-                "created_at" => $created_at);
-        };
-        return $articles_preview;
+        $articles =
+            DB::select("select new_id,new_title,new_editor,new_thumb,new_description,created_at from fg_news where new_id = (select MAX(new_id) from fg_news);");
+        return response()->json($articles);
     }
 
     // 获取单个文章详细信息
