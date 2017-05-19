@@ -185,12 +185,25 @@ class ApiController extends Controller
 
     // 活动
 
+    public function AllActive()
+    {
+        $active = DB::select('select active_id,active_name,active_description,active_big_pic from fg_active');
+        return response()->json($active);
+    }
+
     public function Active()
     {
         $active = Active::all()->take(4);
         return response()->json($active);
     }
 
+    public function ActiveDetail($id)
+    {
+        $active = Active::find($id)->first();
+        $active_pic = DB::select('select pic_url,productId from active_pic WHERE  active_id = :id',['id'=>$id]);
+        $active['active_pic'] = $active_pic;
+        return response()->json($active);
+    }
     // 获取购物车信息
     public function CartInfo($user_name)
     {

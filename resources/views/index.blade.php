@@ -10,42 +10,42 @@
                                }
                            }
 
-        .resize-triggers {
-            -webkit-animation: 1ms resizeanim;
-            visibility: hidden;
-            opacity: 0;
-        }
+    .resize-triggers {
+        -webkit-animation: 1ms resizeanim;
+        visibility: hidden;
+        opacity: 0;
+    }
 
-        .resize-triggers, .resize-triggers > div, .contract-trigger:before {
-            content: " ";
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
-        }
+    .resize-triggers, .resize-triggers > div, .contract-trigger:before {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
 
-        .resize-triggers > div {
-            background: #eee;
-            overflow: auto;
-        }
+    .resize-triggers > div {
+        background: #eee;
+        overflow: auto;
+    }
 
-        .contract-trigger:before {
-            width: 200%;
-            height: 200%;
-        }</style>
+    .contract-trigger:before {
+        width: 200%;
+        height: 200%;
+    }</style>
 </head>
 <body>
 <robots content="index"></robots>
 <meta charset="utf-8">
 <title>兰亭花礼苑 | 兰亭花礼苑鲜花网 | 兰亭花礼苑礼品网 |网上订花 | 送花上门 | 同城速递 | 速递鲜花礼品</title>
 <meta name="description"
-      content="兰亭花礼苑是一家专注于做网上鲜花礼品的电商网站，致力于将新鲜的鲜花礼品以最快的速度送到用户手中，鲜花礼品网可24小时预订鲜花，同城送花、异地送花服务,网上订花后最快3小时即可将鲜花快递上门,送花网站覆盖中国900多城市！">
+      content="兰亭花礼苑是一家专注于做网上鲜花礼品的电商网站，致力于将新鲜的鲜花礼品以最快的速度送到用户手中，鲜花礼品网可24小时预订鲜花，同城送花、异地送花服务,网上订花后最快3小时即可将鲜花快递上门！">
 <meta name="keyword" content="鲜花,鲜花网,鲜花快递,网上订花送花,鲜花礼品网,鲜花礼品,网上订花,送花网站,兰亭花礼网">
 <link rel="shortcut icon" href="./src/assets/img/favicon.ico">
-<link href="{{asset('/resources/views/static/css/app.54f57a4696e7982765f06dfc6b999a75.css')}}" rel="stylesheet">
+<link href="{{asset('/resources/views/static/css/app.ef25a8bfaa3bb9b8453c96f4627b69ee.css')}}" rel="stylesheet">
 <div id="app">
     <div data-v-25673500="" id="header" class="header">
         <div data-v-25673500="" class="g-tb">
@@ -55,7 +55,7 @@
                 </ul>
                 <ul data-v-25673500="" class="u-tb u-tbr">
                     <li data-v-25673500="" class="u-li u-sp u-name"><a data-v-25673500="" href="#"><span
-                                    data-v-25673500="">欢迎： </span></a></li>
+                            data-v-25673500="">欢迎： </span></a></li>
                     <li data-v-25673500="" class="u-li u-sp">
                         <button data-v-25673500="" type="button" class="el-button el-button--text"><!----><!----><span>登录</span>
                         </button>
@@ -63,7 +63,7 @@
                             <div class="el-dialog el-dialog--tiny" style="top: 15%;">
                                 <div class="el-dialog__header"><span class="el-dialog__title">登录</span>
                                     <div class="el-dialog__headerbtn"><i
-                                                class="el-dialog__close el-icon el-icon-close"></i></div>
+                                            class="el-dialog__close el-icon el-icon-close"></i></div>
                                 </div><!---->
                                 <div class="el-dialog__footer">
                                     <div data-v-25673500="" class="dialog-footer">
@@ -83,7 +83,7 @@
                             <div class="el-dialog el-dialog--tiny" style="top: 15%;">
                                 <div class="el-dialog__header"><span class="el-dialog__title">注册</span>
                                     <div class="el-dialog__headerbtn"><i
-                                                class="el-dialog__close el-icon el-icon-close"></i></div>
+                                            class="el-dialog__close el-icon el-icon-close"></i></div>
                                 </div><!---->
                                 <div class="el-dialog__footer">
                                     <div data-v-25673500="" class="dialog-footer">
@@ -99,25 +99,25 @@
             </div>
         </div>
         <div data-v-25673500="" class="g-hd">
-            <div data-v-25673500="" class="m-lg"><a data-v-25673500="" href="http://www.www.lthuali.com"><span
-                            data-v-25673500="" class="u-logo"></span>
-                    <h1 data-v-25673500="" class="u-title">兰亭花礼苑</h1></a></div>
+            <div data-v-25673500="" class="m-lg"><a data-v-25673500="" href="#/" class="router-link-active"><span
+                    data-v-25673500="" class="u-logo"></span>
+                <h1 data-v-25673500="" class="u-title">兰亭花礼苑</h1></a></div>
             <div data-v-25673500="" class="m-nav">
                 <ul data-v-25673500="" class="u-nav">
-                    <li data-v-25673500=""><a data-v-25673500="" href=""><span data-v-25673500=""
-                                                                               class="nav-item">首页</span></a></li>
                     <li data-v-25673500=""><a data-v-25673500="" href="#/" class="router-link-active"><span
-                                    data-v-25673500="" class="nav-item">商城</span></a></li>
+                            data-v-25673500="" class="nav-item">首页</span></a></li>
                     <li data-v-25673500=""><a data-v-25673500="" href="#/products" class=""><span data-v-25673500=""
                                                                                                   class="nav-item">商品列表</span></a>
                     </li>
                     <li data-v-25673500=""><a data-v-25673500="" href="#/news" class=""><span data-v-25673500=""
                                                                                               class="nav-item">相关资讯</span></a>
                     </li>
-                    <li data-v-25673500=""><a data-v-25673500="" href="http://www.www.lthuali.com"><span
-                                    data-v-25673500="" class="nav-item">关于我们</span></a></li>
-                    <li data-v-25673500=""><a data-v-25673500="" href="http://www.www.lthuali.com"><span
-                                    data-v-25673500="" class="nav-item">联系我们</span></a></li>
+                    <li data-v-25673500=""><a data-v-25673500="" href="#/active" class=""><span data-v-25673500=""
+                                                                                                class="nav-item">热门活动</span></a>
+                    </li>
+                    <li data-v-25673500=""><a data-v-25673500="" href="#/aboutus" class=""><span data-v-25673500=""
+                                                                                                 class="nav-item">关于我们</span></a>
+                    </li>
                 </ul>
             </div>
             <div data-v-25673500="" class="sear-cart"><span data-v-25673500="" class="search"><img data-v-25673500=""
@@ -134,9 +134,9 @@
             <div data-v-6c475bc5="" class="el-carousel u-banner" style="position: relative;">
                 <div class="el-carousel__container">
                     <button class="el-carousel__arrow el-carousel__arrow--left" style="display: none;"><i
-                                class="el-icon-arrow-left"></i></button>
+                            class="el-icon-arrow-left"></i></button>
                     <button class="el-carousel__arrow el-carousel__arrow--right" style="display: none;"><i
-                                class="el-icon-arrow-right"></i></button>
+                            class="el-icon-arrow-right"></i></button>
                 </div>
                 <ul class="el-carousel__indicators el-carousel__indicators--outside"></ul>
                 <div class="resize-triggers">
@@ -146,26 +146,7 @@
                     <div class="contract-trigger"></div>
                 </div>
             </div>
-        </div>
-        <div data-v-6c475bc5="" class="g-pro">
-            <div data-v-6c475bc5="" class="item article article-l"><h2 data-v-6c475bc5="" class="t-tit">Flowers For
-                    the</h2>
-                <h2 data-v-6c475bc5="">BIRTHDAY &amp; GIFTS</h2>
-                <p data-v-6c475bc5="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p> <a
-                        data-v-6c475bc5="" href="">立即购买</a></div>
-            <div data-v-6c475bc5="" class="item pic-r"><img data-v-6c475bc5="" src="./static/img/flowers.b6325b7.jpg"
-                                                            alt="生日或礼物用花"></div>
-            <div data-v-6c475bc5="" class="item pic-l"><img data-v-6c475bc5="" src="./static/img/widding.5a4d6f0.jpg"
-                                                            alt="结婚纪念日鲜花"></div>
-            <div data-v-6c475bc5="" class="item article article-r"><h2 data-v-6c475bc5="" class="t-tit">Flowers For
-                    the</h2>
-                <h2 data-v-6c475bc5="">WEDDING DAY</h2>
-                <p data-v-6c475bc5="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Lorem ipsum dolor
-                    sit amet,
-                    consectetur adipiscing elit, sed do sed do Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit, sed do sed do Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit, sed do</p> <a data-v-6c475bc5="" href="">立即购买</a></div>
-        </div>
+        </div> <!---->
         <div data-v-6c475bc5="" class="g-sort">
             <div data-v-6c475bc5="" class="el-tabs" id="sort">
                 <div class="el-tabs__header">
@@ -235,6 +216,16 @@
                                                                  alt=""></li>
                 </ul>
             </div>
+            <div data-v-6c475bc5="" class="connectus"><span data-v-6c475bc5=""><div class="el-popover"
+                                                                                    style="display: none;"><!----><ul
+                    data-v-6c475bc5="" class="connect"><li data-v-6c475bc5=""><img data-v-6c475bc5=""
+                                                                                   src="./static/img/mmqrcode1495151533436.e846f7e.png"
+                                                                                   alt="微信" width="100px" class="c-img"></li> <li
+                    data-v-6c475bc5=""><img data-v-6c475bc5="" src="./static/img/qq_code.4f43e83.png" alt="QQ"
+                                            width="100px" class="c-img"></li></ul></div></span>
+                <button data-v-6c475bc5="" type="button" class="el-button el-button--default"><!----><!----><span><i
+                        data-v-6c475bc5="" class="el-icon-d-arrow-left"></i></span></button>
+            </div>
         </div>
     </div>
     <div data-v-050e6fe4="" class="footer">
@@ -242,37 +233,37 @@
             <dl data-v-050e6fe4="" class="u-about u-list">
                 <dt data-v-050e6fe4="">关于我们</dt>
                 <dd data-v-050e6fe4=""><p data-v-050e6fe4="">
-                        鲜花是爱情的象征，
-                        兰亭花礼苑作为鲜花电商新兴企业，一直主张年轻人要勇敢爱，“勇敢爱，是勇敢表白，
-                        哪怕被拒绝也要再次大声说出我爱你；勇敢爱，是勇敢相守，即使相隔千里，也要竭尽全力，一步一步向你靠近。”
-                        只要勇敢去爱，爱就会一直存在。兰亭花礼苑经营范围包括鲜花、蛋糕、礼篮、绿色花卉、品牌公仔、卡通花束、特色礼品等。
-                    </p></dd>
+                    鲜花是爱情的象征，
+                    兰亭花礼苑作为鲜花电商新兴企业，一直主张年轻人要勇敢爱，“勇敢爱，是勇敢表白，
+                    哪怕被拒绝也要再次大声说出我爱你；勇敢爱，是勇敢相守，即使相隔千里，也要竭尽全力，一步一步向你靠近。”
+                    只要勇敢去爱，爱就会一直存在。兰亭花礼苑经营范围包括鲜花、蛋糕、礼篮、绿色花卉、品牌公仔、卡通花束、特色礼品等。
+                </p></dd>
             </dl>
             <dl data-v-050e6fe4="" class="u-info u-list">
                 <dt data-v-050e6fe4=""><span data-v-050e6fe4="">信息</span></dt>
                 <dd data-v-050e6fe4="" class="u-item"><a data-v-050e6fe4="" href="#"><span
-                                data-v-050e6fe4="">关于我们</span></a></dd>
+                        data-v-050e6fe4="">关于我们</span></a></dd>
                 <dd data-v-050e6fe4="" class="u-item"><a data-v-050e6fe4="" href="#"><span
-                                data-v-050e6fe4="">联系我们</span></a></dd>
+                        data-v-050e6fe4="">联系我们</span></a></dd>
                 <dd data-v-050e6fe4="" class="u-item"><a data-v-050e6fe4="" href="#"><span
-                                data-v-050e6fe4="">客户服务</span></a></dd>
+                        data-v-050e6fe4="">客户服务</span></a></dd>
                 <dd data-v-050e6fe4="" class="u-item"><a data-v-050e6fe4="" href="#"><span
-                                data-v-050e6fe4="">网站地图</span></a></dd>
+                        data-v-050e6fe4="">网站地图</span></a></dd>
                 <dd data-v-050e6fe4="" class="u-item"><a data-v-050e6fe4="" href="#"><span
-                                data-v-050e6fe4="">RSS订阅</span></a></dd>
+                        data-v-050e6fe4="">RSS订阅</span></a></dd>
             </dl>
             <dl data-v-050e6fe4="" class="u-acc u-list">
                 <dt data-v-050e6fe4=""><span data-v-050e6fe4="">我的账户</span></dt>
                 <dd data-v-050e6fe4="" class="u-item"><a data-v-050e6fe4="" href="#"><span
-                                data-v-050e6fe4="">我的订单</span></a></dd>
+                        data-v-050e6fe4="">我的订单</span></a></dd>
                 <dd data-v-050e6fe4="" class="u-item"><a data-v-050e6fe4="" href="#"><span
-                                data-v-050e6fe4="">我的信用单</span></a></dd>
+                        data-v-050e6fe4="">我的信用单</span></a></dd>
                 <dd data-v-050e6fe4="" class="u-item"><a data-v-050e6fe4="" href="#"><span
-                                data-v-050e6fe4="">地址管理</span></a></dd>
+                        data-v-050e6fe4="">地址管理</span></a></dd>
                 <dd data-v-050e6fe4="" class="u-item"><a data-v-050e6fe4="" href="#"><span
-                                data-v-050e6fe4="">个人信息</span></a></dd>
+                        data-v-050e6fe4="">个人信息</span></a></dd>
                 <dd data-v-050e6fe4="" class="u-item"><a data-v-050e6fe4="" href=""><span
-                                data-v-050e6fe4="">退出</span></a></dd>
+                        data-v-050e6fe4="">退出</span></a></dd>
             </dl>
             <dl data-v-050e6fe4="" class="u-optime u-list">
                 <dt data-v-050e6fe4="">营业时间</dt>
@@ -286,8 +277,8 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="{{asset('/resources/views/static/js/manifest.2e510dc927fab5e40762.js')}}"></script>
-<script type="text/javascript" src="{{asset('/resources/views/static/js/vendor.1fd3c2c5323222b49839.js')}}"></script>
-<script type="text/javascript" src="{{asset('/resources/views/static/js/app.03b47a1835d06b2d3617.js')}}"></script>
+<script type="text/javascript" src="{{asset('/resources/views/static/js/manifest.e337e075f70cd74d1a9e.js')}}"></script>
+<script type="text/javascript" src="{{asset('/resources/views/static/js/vendor.c245c3e4c9323d50ec4c.js')}}"></script>
+<script type="text/javascript" src="{{asset('/resources/views/static/js/app.c1b04a990dead05d2c29.js')}}"></script>
 </body>
 </html>
