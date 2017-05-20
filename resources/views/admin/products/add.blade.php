@@ -129,7 +129,7 @@
                 <tr>
                     <th>商品细节：</th>
                     <td>
-                        <textarea name="xijie" style="resize: none" placeholder="图片地址"></textarea>
+                        <textarea name="details" style="resize: none" placeholder="图片地址"></textarea>
                     </td>
                 </tr>
                 <tr>

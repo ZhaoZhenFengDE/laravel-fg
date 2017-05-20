@@ -16,26 +16,8 @@ class ApiController extends Controller
     // 商品简介
     public function preview()
     {
-        $products = Products::all();
-        $preview = array();
-        for ($i = 0; $i < count($products); $i++) {
-            $commodity_id = $products[$i]->commodity_id;
-            $commodity_name = $products[$i]->commodity_name;
-            $commodity_pic = $products[$i]->commodity_pic;
-            $price = $products[$i]->price;
-            $old_price = $products[$i]->old_price;
-            $cate_id = $products[$i]->cate_id;
-            $star = $products[$i]->star;
-            $preview[$i] = array(
-                "commodity_id" => $commodity_id,
-                "commodity_name" => $commodity_name,
-                "commodity_pic" => $commodity_pic,
-                "price" => $price,
-                "old_price" => $old_price,
-                "cate_id" => $cate_id,
-                "star" => $star);
-        }
-        return response()->json($preview);
+        $products = DB::select("select commodity_id,commodity_name,commodity_pic,price,old_price,cate_id,f_cate,star from fg_commodity");
+        return response()->json($products);
     }
 
     //价格筛选，获取商品。
@@ -47,15 +29,21 @@ class ApiController extends Controller
     //获取分页信息
     public function getAllPage()
     {
-        $products = Products::orderBy('commodity_id')->paginate(9);
+        $products = Products::select('commodity_id','commodity_name','commodity_pic','price','old_price','cate_id','f_cate','star')
+            ->orderBy('commodity_id','desc')->paginate(9);
         return response()->json($products);
     }
 
     //获取分类商品信息
     public function getCategory($cate_id)
     {
-        $products = Products::all()->where('cate_id', $cate_id);
-        return response()->json($products);
+        if($cate_id>5){
+            $products = Products::all()->where('cate_id', $cate_id);
+            return response()->json($products);
+        }else{
+            $products = Products::all()->where('f_cate', $cate_id);
+            return response()->json($products);
+        }
     }
 
     //获取商品详情

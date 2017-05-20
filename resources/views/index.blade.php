@@ -277,8 +277,8 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="{{asset('/resources/views/static/js/manifest.e337e075f70cd74d1a9e.js')}}"></script>
+<script type="text/javascript" src="{{asset('/resources/views/static/js/manifest.4957aa09807a934a35b1.js')}}"></script>
 <script type="text/javascript" src="{{asset('/resources/views/static/js/vendor.c245c3e4c9323d50ec4c.js')}}"></script>
-<script type="text/javascript" src="{{asset('/resources/views/static/js/app.c1b04a990dead05d2c29.js')}}"></script>
+<script type="text/javascript" src="{{asset('/resources/views/static/js/app.f6240c49bccc5c564cf9.js')}}"></script>
 </body>
 </html>
