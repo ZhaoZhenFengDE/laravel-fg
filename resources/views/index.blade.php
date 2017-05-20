@@ -42,10 +42,10 @@
 <meta charset="utf-8">
 <title>兰亭花礼苑 | 兰亭花礼苑鲜花网 | 兰亭花礼苑礼品网 |网上订花 | 送花上门 | 同城速递 | 速递鲜花礼品</title>
 <meta name="description"
-      content="兰亭花礼苑是一家专注于做网上鲜花礼品的电商网站，致力于将新鲜的鲜花礼品以最快的速度送到用户手中，鲜花礼品网可24小时预订鲜花，同城送花、异地送花服务,网上订花后最快3小时即可将鲜花快递上门！">
+      content="兰亭花礼苑是一家专注于做网上鲜花礼品的电商网站，致力于将新鲜的鲜花礼品以最快的速度送到用户手中，鲜花礼品网可24小时预订鲜花，同城送花、异地送花服务,网上订花后最快3小时即可将鲜花快递上门,送花网站覆盖中国900多城市！">
 <meta name="keyword" content="鲜花,鲜花网,鲜花快递,网上订花送花,鲜花礼品网,鲜花礼品,网上订花,送花网站,兰亭花礼网">
 <link rel="shortcut icon" href="./src/assets/img/favicon.ico">
-<link href="{{asset('/resources/views/static/css/app.ef25a8bfaa3bb9b8453c96f4627b69ee.css')}}" rel="stylesheet">
+<link href="{{asset('/resources/views/static/css/app.99df9d056760694f742b394ab445d494.css')}}" rel="stylesheet">
 <div id="app">
     <div data-v-25673500="" id="header" class="header">
         <div data-v-25673500="" class="g-tb">
@@ -157,12 +157,11 @@
                                      style="width: 384px; -webkit-transform: translateX(0px);"></div>
                                 <div class="el-tabs__item is-active">鲜花</div>
                                 <div class="el-tabs__item">礼品</div>
-                                <div class="el-tabs__item">蛋糕</div>
                             </div>
                         </div>
                         <div class="resize-triggers">
                             <div class="expand-trigger">
-                                <div style="width: 385px; height: 61px;"></div>
+                                <div style="width: 385px; height: 41px;"></div>
                             </div>
                             <div class="contract-trigger"></div>
                         </div>
@@ -170,9 +169,6 @@
                 </div>
                 <div class="el-tabs__content">
                     <div data-v-6c475bc5="" class="el-tab-pane">
-                        <div data-v-6c475bc5="" class="el-row"></div>
-                    </div>
-                    <div data-v-6c475bc5="" class="el-tab-pane" style="display: none;">
                         <div data-v-6c475bc5="" class="el-row"></div>
                     </div>
                     <div data-v-6c475bc5="" class="el-tab-pane" style="display: none;">
@@ -277,8 +273,8 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="{{asset('/resources/views/static/js/manifest.4957aa09807a934a35b1.js')}}"></script>
+<script type="text/javascript" src="{{asset('/resources/views/static/js/manifest.705f56ed21f62891401b.js')}}"></script>
 <script type="text/javascript" src="{{asset('/resources/views/static/js/vendor.c245c3e4c9323d50ec4c.js')}}"></script>
-<script type="text/javascript" src="{{asset('/resources/views/static/js/app.f6240c49bccc5c564cf9.js')}}"></script>
+<script type="text/javascript" src="{{asset('/resources/views/static/js/app.9c048a4ff6207a143f5c.js')}}"></script>
 </body>
 </html>
